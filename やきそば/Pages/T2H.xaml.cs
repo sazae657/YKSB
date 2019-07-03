@@ -13,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace やきそば
+namespace やきそば.Pages
 {
     /// <summary>
-    /// MainWindow.xaml の相互作用ロジック
+    /// T2H.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class T2H : Page
     {
-        public MainWindow()
+        public T2H()
         {
             InitializeComponent();
-
-            Punel.Content = new Pages.T2H();
         }
     }
 }

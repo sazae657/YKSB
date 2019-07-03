@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:やきそば"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="やきそば" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary Source="/Style/Splitter.xaml"/>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="76*"/>
+            <RowDefinition Height="15.333"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140" MinWidth="140"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="643*"/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter Style="{StaticResource VerticalGridSplitter}" Grid.Column="1" HorizontalAlignment="Stretch" ResizeDirection="Columns" Margin="0,15,0,0.333" Grid.RowSpan="2" />
+        <StatusBar Margin="0,0.667,0.333,-0.333" Grid.Row="2" Grid.ColumnSpan="3"/>
+        <ToolBarTray Margin="0,0,0.333,0.333" Grid.ColumnSpan="3">
+            <ToolBar HorizontalAlignment="Left" Width="140" Margin="0,0,-116.667,-25"/>
+        </ToolBarTray>
+        <Frame x:Name="Punel" Grid.Column="2" Margin="9.667,9.667,10.333,10.333" Grid.Row="1"/>
+
     </Grid>
 </Window>
