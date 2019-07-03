@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,22 @@ namespace やきそば.Pages
         public T2H()
         {
             InitializeComponent();
+            Source = new RejectablePrperty<string>(TextBox_TextChanged);
+            DataContext = this;
+        }
+
+        public RejectablePrperty<string> Source { get; set; } 
+        public RejectablePrperty<string> Dest { get; set; } = new RejectablePrperty<string>();
+
+        private void TextBox_TextChanged(object sender, PropertyChangedEventArgs e)
+        {
+            var sb = new StringBuilder();
+            foreach (var c in Source.Value) {
+                sb.Append("0x")
+                  .Append(string.Join("", from k in Encoding.UTF8.GetBytes(new[] { c }) select k.ToString("X2")));
+                sb.Append(", ");
+            }
+            Dest.Value = sb.ToString();
         }
     }
 }
